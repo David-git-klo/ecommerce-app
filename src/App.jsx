@@ -1,19 +1,29 @@
 
+import { useState } from 'react';
 import Layout from './components/Layout'
-import { useState, useEffect } from 'react';
 
 function App() {
-  //array destructuring
-  let [name, setName] = useState("Dave");
-  let handleClick = () => { setName("David") };
-  let doSomething = () => alert("Hi");
+  let [posts, setPosts] = useState([
+    {
+      id: 1,
+      title: "First Post",
+      body: "This is First post",
+      author: "Dave"
+    },
+    {
+      id: 1,
+      title: "Second Post",
+      body: "This is Second post",
+      author: "John"
+    }
+  ]);
   return (
-   <Layout>
-    <h1>Hello World</h1>
-    <h1>{name}</h1>
-    <button onClick={handleClick}>Change</button>
-    <button onClick={doSomething}>Click</button>
-   </Layout>
+    <Layout>
+{posts.map((post) => {
+  return <h1 key={post.id}>{post.title}</h1>
+})}
+{/* <button onClick={() => setPosts([post])}>Click </button> */}
+    </Layout>
   )
 }
 
