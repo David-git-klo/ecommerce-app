@@ -1,34 +1,19 @@
 
-
-import Button from './Button.jsx';
-import Greed from './Greed.jsx'
-import girl from './assets/myGirl.jpg'
-
+import Layout from './components/Layout'
+import { useState, useEffect } from 'react';
 
 function App() {
-
-  let name = "Dave";
-
+  //array destructuring
+  let [name, setName] = useState("Dave");
+  let handleClick = () => { setName("David") };
+  let doSomething = () => alert("Hi");
   return (
-
-
-    <>
-
-      <Greed name="Dave" />
-      <Greed name="Dan" />
-      <Greed name="Leon" />
-      <Greed name="John" />
-      <Button>
-        <span>icon</span>
-        <p>Submit</p>
-      </Button>
-      <Button>
-        <span>icon</span>
-        <p>Cancel</p>
-      </Button>
-
-      <img src={girl} alt="" />
-    </>
+   <Layout>
+    <h1>Hello World</h1>
+    <h1>{name}</h1>
+    <button onClick={handleClick}>Change</button>
+    <button onClick={doSomething}>Click</button>
+   </Layout>
   )
 }
 
